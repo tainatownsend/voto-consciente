@@ -2,64 +2,175 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Voto Consciente: explicações simples para ajudar você a entender os cargos e fazer suas próprias escolhas nas Eleições 2026.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fffdf7">
+<meta name="description" content="Voto Consciente: política explicada de um jeito simples para ajudar você a fazer suas próprias escolhas nas Eleições 2026.">
 <title>Voto Consciente — Entender para escolher melhor</title>
 <style>
-:root{--g:#176b45;--ink:#17352a;--mut:#5c6d64;--bg:#fffdf7;--soft:#eef8f1;--yel:#fff1b8;--line:#dce8e0}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;line-height:1.5}.wrap{width:min(680px,calc(100% - 28px));margin:auto}
-header{height:68px;display:flex;align-items:center;border-bottom:1px solid var(--line)}.brand{font-weight:900;color:var(--g);font-size:21px;line-height:.9}.brand small{display:block;color:var(--ink);font-size:10px;margin-top:6px}
-.screen{min-height:calc(100svh - 68px);padding:32px 0 44px}.screen[hidden]{display:none}.screen.active{display:flex;align-items:center}.center{text-align:center;width:100%}
-.antonia{height:245px;display:flex;justify-content:center;align-items:flex-end;margin:10px auto}.antonia img{height:100%;max-width:90%;object-fit:contain}.badge{display:inline-block;background:var(--yel);padding:8px 13px;border-radius:999px;font-weight:900}
-h1,h2{line-height:1.08;letter-spacing:-1px}h1{font-size:clamp(40px,8vw,58px);margin:10px 0 14px}h2{font-size:clamp(34px,6vw,45px);margin:8px 0 18px}p{font-size:20px}.lead{color:#40564b}.step{font-size:14px;color:var(--g);font-weight:900;margin-bottom:20px}.step span{float:right;letter-spacing:4px}.focus{font-size:clamp(24px,5vw,31px);font-weight:900;line-height:1.25;color:var(--g);background:var(--soft);border-radius:22px;padding:20px;margin:22px 0}.focus.small{font-size:21px;text-align:left}.remember{background:var(--yel);border-radius:20px;padding:18px;font-size:19px;font-weight:900;margin-top:24px}.cta{border:0;background:var(--g);color:white;border-radius:999px;padding:17px 28px;font-weight:900;font-size:19px;min-width:230px;margin-top:25px;cursor:pointer}.cta:focus-visible{outline:4px solid #f0c84b;outline-offset:4px}
-footer{background:#123f30;color:white;padding:25px 0}footer p{font-size:14px;margin:5px 0}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:520px){.screen{padding-top:22px}.antonia{height:220px}p{font-size:19px}.cta{width:100%}.focus.small{font-size:19px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+:root{
+  --green:#176b45;--green-dark:#124f36;--ink:#17352a;--muted:#5f7067;
+  --paper:#fffdf7;--white:#ffffff;--mint:#eef8f1;--yellow:#fff1b8;
+  --blue:#eaf4fb;--line:#d8e5dd;--focus:#f0bd35;--shadow:0 10px 30px rgba(20,64,43,.08)
+}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;max-width:100%;overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5;-webkit-text-size-adjust:100%}
+button,a{font:inherit}button{touch-action:manipulation}img,svg{display:block;max-width:100%;height:auto}
+a{color:var(--green-dark)}
+.wrap{width:min(720px,calc(100% - 28px));margin-inline:auto}
+.site-header{height:68px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:rgba(255,253,247,.97);position:sticky;top:0;z-index:10}
+.brand{font-weight:900;color:var(--green);font-size:21px;line-height:.9;text-transform:lowercase}.brand small{display:block;color:var(--ink);font-size:10px;margin-top:6px;text-transform:none}
+.screen{min-height:calc(100svh - 68px);padding:24px 0 42px}.screen[hidden]{display:none}.screen.active{display:flex;align-items:center}
+.home-inner,.done-inner{width:100%;text-align:center}.badge{display:inline-block;background:var(--yellow);border-radius:999px;padding:8px 13px;font-weight:900;font-size:14px}
+.antonia{height:250px;margin:14px auto 6px;display:flex;align-items:flex-end;justify-content:center}.antonia img{height:100%;width:auto;object-fit:contain}
+h1,h2{line-height:1.08;letter-spacing:-1px}h1{font-size:clamp(38px,8vw,56px);margin:10px auto 12px;max-width:620px}h2{font-size:clamp(31px,6vw,43px);margin:10px 0 16px}.lead{font-size:clamp(19px,3.4vw,23px);color:#40564b;max-width:590px;margin:0 auto}
+.mode-box{margin:24px auto 0;max-width:560px;text-align:left}.mode-title{font-size:18px;font-weight:900;margin:0 0 10px}.mode-list{display:grid;gap:9px}.mode{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:18px;background:var(--white);padding:13px 15px;min-height:58px}.mode.active{border:2px solid var(--green);background:var(--mint)}.mode.disabled{color:#6f7b75;background:#f6f7f6}.mode-icon{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#dfeee5;color:var(--green);font-weight:900;flex:0 0 auto}.mode.disabled .mode-icon{background:#e9ecea;color:#6f7b75}.mode strong{display:block;font-size:18px}.mode small{display:block;font-size:14px;color:var(--muted)}.soon{margin-left:auto;font-size:12px;font-weight:900;background:#ecefed;padding:5px 8px;border-radius:999px;white-space:nowrap}
+.cta{width:100%;max-width:560px;min-height:58px;border:0;border-radius:999px;background:var(--green);color:white;font-weight:900;font-size:19px;padding:15px 22px;margin-top:20px;cursor:pointer;box-shadow:var(--shadow)}.cta:hover{background:var(--green-dark)}.cta:focus-visible,.back:focus-visible,a:focus-visible{outline:4px solid var(--focus);outline-offset:4px}.reassure{font-size:14px;color:var(--muted);margin:12px 0 0}
+.lesson{width:100%}.topline{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:8px}.back{border:0;background:transparent;color:var(--green-dark);font-weight:900;padding:10px 2px;cursor:pointer;min-height:44px}.step-count{font-size:14px;font-weight:900;color:var(--muted)}
+progress{width:100%;height:10px;appearance:none;-webkit-appearance:none;border:0;background:#e5eee8;border-radius:999px;overflow:hidden;margin-bottom:20px}progress::-webkit-progress-bar{background:#e5eee8}progress::-webkit-progress-value{background:var(--green);border-radius:999px}progress::-moz-progress-bar{background:var(--green);border-radius:999px}
+.scene{background:var(--mint);border-radius:26px;padding:18px;margin:0 0 22px;border:1px solid #d8eadf}.scene svg{width:100%;height:190px}.scene.blue{background:var(--blue);border-color:#d6e6f1}.scene.yellow{background:#fff8dc;border-color:#efe0a6}
+.lesson p{font-size:19px;margin:12px 0}.question{font-size:clamp(24px,5vw,30px);font-weight:900;line-height:1.22;color:var(--green-dark);background:var(--mint);border-radius:20px;padding:18px;margin:20px 0}.remember{background:var(--yellow);border-radius:20px;padding:17px 18px;font-size:19px;font-weight:900;margin:22px 0 2px}.simple-grid{display:grid;gap:10px;margin:18px 0}.simple-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:15px;font-size:18px}.simple-card strong{display:block;color:var(--green-dark);font-size:19px;margin-bottom:3px}.ballot{display:grid;grid-template-columns:1fr;gap:8px;margin:18px 0}.ballot-row{display:grid;grid-template-columns:38px 1fr;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:11px 13px;font-size:18px}.ballot-num{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:white;font-weight:900}.hint{font-size:15px!important;color:var(--muted)}
+.checklist{display:grid;gap:10px;margin:18px 0}.check{display:flex;gap:11px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:13px;font-size:18px}.checkmark{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--green);font-weight:900;flex:0 0 auto}
+.done-inner .antonia{height:235px}.done-inner .remember{max-width:580px;margin:20px auto 0}.secondary-note{margin-top:16px;font-size:15px;color:var(--muted)}
+.site-footer{background:#123f30;color:white;padding:26px 0}.site-footer p{font-size:14px;margin:5px 0;max-width:680px}.site-footer a{color:white}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(max-width:520px){.screen{padding-top:18px}.antonia{height:220px}h1{font-size:40px}.lead,.lesson p{font-size:18px}.mode strong{font-size:17px}.scene svg{height:155px}.question{font-size:24px}.remember{font-size:18px}.cta{font-size:18px}.ballot-row,.simple-card,.check{font-size:17px}}
+@media(min-width:800px){.screen{padding-top:34px}.scene svg{height:210px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="brand">voto<br>consciente<small>Entender para escolher melhor.</small></div></div></header>
-<main id="conteudo" aria-live="polite">
-<section class="screen active" data-s="0" aria-labelledby="t0"><div class="wrap center"><span class="badge">1º turno: 4 de outubro</span><div class="antonia"><img src="assets/dona-antonia.svg" alt="Ilustração de Dona Antonia sorrindo"></div><h1 id="t0" tabindex="-1">Vamos aprender a escolher melhor?</h1><p class="lead">Não precisa entender de política.<br>Uma coisa de cada vez.</p><button class="cta" type="button" onclick="go(1)">COMEÇAR</button></div></section>
+<header class="site-header"><div class="wrap"><div class="brand">voto<br>consciente<small>Entender para escolher melhor.</small></div></div></header>
+<main id="main" aria-live="polite">
+<section class="screen active" data-screen="home" aria-labelledby="home-title">
+  <div class="wrap home-inner">
+    <span class="badge">Eleições 2026 · 1º turno: 4 de outubro</span>
+    <div class="antonia"><img src="assets/dona-antonia.svg" alt="Ilustração de Dona Antonia sorrindo"></div>
+    <h1 id="home-title" tabindex="-1">Vamos entender seu voto?</h1>
+    <p class="lead">Política explicada de um jeito simples.<br>Uma coisa de cada vez.</p>
+    <div class="mode-box" aria-label="Formas de aprender">
+      <p class="mode-title">Como você quer aprender?</p>
+      <div class="mode-list">
+        <div class="mode active"><span class="mode-icon" aria-hidden="true">Aa</span><span><strong>Ler</strong><small>Disponível agora</small></span></div>
+        <div class="mode disabled" aria-disabled="true"><span class="mode-icon" aria-hidden="true">♪</span><span><strong>Ouvir</strong><small>Áudio do mesmo conteúdo</small></span><span class="soon">EM BREVE</span></div>
+        <div class="mode disabled" aria-disabled="true"><span class="mode-icon" aria-hidden="true">▶</span><span><strong>Assistir</strong><small>Vídeo do mesmo conteúdo</small></span><span class="soon">EM BREVE</span></div>
+      </div>
+    </div>
+    <button class="cta" type="button" onclick="startJourney()">COMEÇAR A LER</button>
+    <p class="reassure">Você pode parar e voltar depois.</p>
+  </div>
+</section>
 
-<section class="screen" data-s="1" aria-labelledby="t1" hidden><div class="wrap"><div class="step">Seu próximo degrau <span aria-hidden="true">● ○</span></div><h2 id="t1" tabindex="-1">Antes de escolher uma pessoa...</h2><p>Dona Antonia já começou a pensar em quem vai votar.</p><div class="focus">“Que trabalho eu estou escolhendo alguém para fazer?”</div><p>Cada cargo tem um trabalho diferente. Saber isso ajuda a entender se uma promessa faz sentido.</p><div class="remember">Primeiro entenda o cargo. Depois pense em quem escolher.</div><button class="cta" type="button" onclick="go(2)">CONTINUAR</button></div></section>
+<section class="screen" data-screen="lesson" hidden>
+  <div class="wrap lesson">
+    <div class="topline">
+      <button class="back" type="button" onclick="goBack()" aria-label="Voltar para o passo anterior">← Voltar</button>
+      <span class="step-count" id="step-count">Passo 1 de 8</span>
+    </div>
+    <progress id="progress" max="8" value="1">1 de 8</progress>
+    <div id="lesson-content"></div>
+    <button class="cta" id="continue-btn" type="button" onclick="nextStep()">CONTINUAR</button>
+  </div>
+</section>
 
-<section class="screen" data-s="2" aria-labelledby="t2" hidden><div class="wrap"><div class="step">Mais um degrau <span aria-hidden="true">● ○</span></div><h2 id="t2" tabindex="-1">O que vou escolher nesta eleição?</h2><p>Nas Eleições 2026, Dona Antonia vai fazer <strong>seis escolhas</strong> na urna.</p><div class="focus small">Deputado Federal<br>Deputado Estadual ou Distrital<br>Senador — primeira vaga<br>Senador — segunda vaga<br>Governador<br>Presidente</div><p>É muita coisa para decorar de uma vez. <strong>E você não precisa decorar agora.</strong></p><div class="remember">Por enquanto, guarde só isto: são trabalhos diferentes.</div><button class="cta" type="button" onclick="go(3)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="3" aria-labelledby="t3" hidden><div class="wrap"><div class="step">Agora fica mais simples <span aria-hidden="true">● ○</span></div><h2 id="t3" tabindex="-1">Esses cargos fazem trabalhos diferentes.</h2><p>Podemos começar separando em dois grupos simples:</p><div class="focus small"><strong>Governador e Presidente</strong><br>ajudam a administrar o governo.<br><br><strong>Deputados e Senadores</strong><br>participam da criação das leis e fiscalizam.</div><p>Existem mais detalhes, mas não precisamos aprender tudo agora.</p><div class="remember">Uns administram. Outros criam leis e fiscalizam.</div><button class="cta" type="button" onclick="go(4)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="4" aria-labelledby="t4" hidden><div class="wrap"><div class="step">Agora olhamos a promessa <span aria-hidden="true">● ○</span></div><h2 id="t4" tabindex="-1">Um candidato fez uma promessa.</h2><p>Antes, Dona Antonia talvez pensasse apenas: “Gostei dessa promessa.”</p><div class="focus">“Isso faz parte do trabalho desse cargo?”</div><p>Um candidato pode prometer algo que não depende só dele — ou que não faz parte daquele cargo.</p><div class="remember">Pergunte: ele pode mesmo fazer isso?</div><button class="cta" type="button" onclick="go(5)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="5" aria-labelledby="t5" hidden><div class="wrap"><div class="step">Mais uma boa pergunta <span aria-hidden="true">● ○</span></div><h2 id="t5" tabindex="-1">A promessa parece boa. E agora?</h2><p>Dona Antonia não pergunta apenas “eu gostei?”.</p><div class="focus">Como vai fazer?<br>De onde vêm os recursos?</div><p>Não precisa entender de economia para pedir uma explicação simples.</p><div class="remember">Uma boa promessa precisa de explicação.</div><button class="cta" type="button" onclick="go(6)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="6" aria-labelledby="t6" hidden><div class="wrap"><div class="step">Agora olhamos a pessoa <span aria-hidden="true">● ○</span></div><h2 id="t6" tabindex="-1">E quem é esse candidato?</h2><p>Dona Antonia quer conhecer melhor quem está pedindo o voto dela.</p><div class="focus small">O que essa pessoa já fez?<br><br>O que ela fala combina com o que já fez?<br><br>Onde posso encontrar informações sobre ela?</div><p>Você pode ouvir outras pessoas. Mas também pode procurar informação e pensar por você.</p><div class="remember">Seu voto é seu.</div><button class="cta" type="button" onclick="go(7)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="7" aria-labelledby="t7" hidden><div class="wrap"><div class="step">Antes de acreditar ou compartilhar <span aria-hidden="true">● ○</span></div><h2 id="t7" tabindex="-1">“Dona Antonia, olha isso!”</h2><p>Chegou uma mensagem: “URGENTE! Veja isso antes de votar!”</p><div class="focus">PARE.<br>VEJA quem publicou.<br>CONFIRA em outras fontes.</div><p>Nem tudo que chega no celular é verdade. Não precisa passar adiante na hora.</p><div class="remember">PARE. VEJA. CONFIRA.</div><button class="cta" type="button" onclick="go(8)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="8" aria-labelledby="t8" hidden><div class="wrap"><div class="step">Seu próximo degrau está mais claro <span aria-hidden="true">● ○</span></div><h2 id="t8" tabindex="-1">Agora é com você.</h2><p>Antes de decidir, Dona Antonia faz algumas perguntas.</p><div class="focus small">Sei o que esse cargo faz?<br><br>A promessa tem a ver com esse cargo?<br><br>Procurei conhecer o candidato?<br><br>Conferi as informações importantes?</div><p>Você não precisa saber tudo sobre política. Precisa saber fazer boas perguntas.</p><div class="remember">O voto é seu. A escolha também.</div><button class="cta" type="button" onclick="go(9)">CONTINUAR</button></div></section>
-
-<section class="screen" data-s="9" aria-labelledby="t9" hidden><div class="wrap center"><div class="antonia"><img src="assets/dona-antonia.svg" alt=""></div><h2 id="t9" tabindex="-1">Você já tem uma boa base para pensar no seu voto.</h2><p class="lead">Quando quiser, podemos subir mais um degrau e entender melhor como a política funciona.</p><button class="cta" type="button" onclick="go(0)">VOLTAR AO INÍCIO</button></div></section>
+<section class="screen" data-screen="done" hidden aria-labelledby="done-title">
+  <div class="wrap done-inner">
+    <div class="antonia"><img src="assets/dona-antonia.svg" alt="Ilustração de Dona Antonia sorrindo"></div>
+    <h2 id="done-title" tabindex="-1">Pronto. Você deu seu primeiro passo.</h2>
+    <p class="lead">Agora, quando ouvir uma promessa, você já sabe algumas perguntas importantes para fazer.</p>
+    <div class="remember">Você não precisa saber tudo sobre política para escolher melhor.</div>
+    <button class="cta" type="button" onclick="goHome()">VOLTAR AO INÍCIO</button>
+    <p class="secondary-note">Outras trilhas de aprendizagem serão adicionadas aos poucos.</p>
+  </div>
+</section>
 </main>
-<footer><div class="wrap"><strong>Voto Consciente</strong><p>Projeto sem partido. Não dizemos em quem você deve votar. Queremos ajudar você a entender e fazer suas próprias escolhas.</p></div></footer>
+<footer class="site-footer"><div class="wrap"><strong>Voto Consciente</strong><p>Este projeto não apoia partido nem candidato. Queremos ajudar você a entender melhor a política e fazer suas próprias escolhas.</p><p>Informações sobre as Eleições 2026 conferidas no <a href="https://www.tse.jus.br/" target="_blank" rel="noopener">Tribunal Superior Eleitoral (TSE)</a>.</p></div></footer>
 <script>
+const visuals={
+work:`<figure class="scene yellow" aria-label="Dois tipos de trabalho do dia a dia"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="35" y="52" width="220" height="142" rx="24" fill="#fff"/><path d="M95 87c35 0 35 58 0 58s-35-58 0-58z" fill="#f2c391"/><path d="M72 151h47c22 0 39 15 44 43H28c6-28 22-43 44-43z" fill="#3d8a5b"/><path d="M158 93l31 31m-31 0l31-31" stroke="#176b45" stroke-width="12" stroke-linecap="round"/><rect x="345" y="52" width="220" height="142" rx="24" fill="#fff"/><circle cx="405" cy="113" r="28" fill="#f2c391"/><path d="M382 151h47c22 0 39 15 44 43H338c6-28 22-43 44-43z" fill="#487ab7"/><path d="M492 82v68m-26-34h52" stroke="#d49b16" stroke-width="12" stroke-linecap="round"/><text x="145" y="220" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">cada trabalho tem uma função</text><text x="455" y="220" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">na política também</text></svg></figure>`,
+roles:`<figure class="scene" aria-label="Dois grupos de trabalhos na política"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="35" y="35" width="240" height="170" rx="24" fill="#fff"/><path d="M90 110h130v72H90z" fill="#dbe9df"/><path d="M80 110l75-48 75 48z" fill="#176b45"/><rect x="115" y="132" width="25" height="50" fill="#fff"/><rect x="171" y="132" width="25" height="50" fill="#fff"/><text x="155" y="225" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">administrar</text><rect x="325" y="35" width="240" height="170" rx="24" fill="#fff"/><rect x="372" y="72" width="82" height="108" rx="8" fill="#fff8dc" stroke="#d3b969" stroke-width="4"/><path d="M392 100h43m-43 24h43m-43 24h32" stroke="#176b45" stroke-width="6" stroke-linecap="round"/><ellipse cx="497" cy="124" rx="43" ry="29" fill="none" stroke="#176b45" stroke-width="7"/><circle cx="497" cy="124" r="12" fill="#176b45"/><text x="445" y="225" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">leis + acompanhar</text></svg></figure>`,
+ballot:`<figure class="scene blue" aria-label="Urna eletrônica e seis escolhas"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="55" y="55" width="190" height="140" rx="18" fill="#eef2f1" stroke="#91a29b" stroke-width="4"/><rect x="82" y="78" width="112" height="68" rx="8" fill="#fff"/><circle cx="219" cy="102" r="8" fill="#176b45"/><circle cx="219" cy="126" r="8" fill="#d4a321"/><path d="M116 167h68" stroke="#176b45" stroke-width="10" stroke-linecap="round"/><path d="M315 55h220" stroke="#176b45" stroke-width="5" stroke-linecap="round"/><g font-family="Arial" font-size="20" fill="#17352a"><text x="320" y="84">1  Deputado Federal</text><text x="320" y="112">2  Deputado Estadual/Distrital</text><text x="320" y="140">3 e 4  Senador</text><text x="320" y="168">5  Governador</text><text x="320" y="196">6  Presidente</text></g></svg></figure>`,
+promise:`<figure class="scene yellow" aria-label="Candidato fazendo uma promessa e Dona Antonia pensando"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><circle cx="150" cy="108" r="42" fill="#f1c394"/><path d="M96 190c7-43 27-63 54-63s48 20 55 63z" fill="#487ab7"/><path d="M210 52h225a28 28 0 0 1 28 28v55a28 28 0 0 1-28 28H310l-40 34 8-34h-68a28 28 0 0 1-28-28V80a28 28 0 0 1 28-28z" fill="#fff" stroke="#e5d28f" stroke-width="3"/><text x="323" y="101" text-anchor="middle" font-size="23" font-family="Arial" font-weight="700" fill="#17352a">“Eu vou fazer isso!”</text><circle cx="505" cy="160" r="35" fill="#9d5d3f"/><path d="M468 215c7-37 20-55 37-55s31 18 38 55z" fill="#3d8a5b"/><text x="505" y="82" text-anchor="middle" font-size="42" font-family="Arial" fill="#176b45">?</text></svg></figure>`,
+plan:`<figure class="scene" aria-label="Plano simples com caminho e dinheiro"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="70" y="55" width="190" height="130" rx="18" fill="#fff"/><path d="M105 92h115m-115 30h88m-88 30h65" stroke="#176b45" stroke-width="8" stroke-linecap="round"/><circle cx="375" cy="92" r="37" fill="#f3d46f"/><text x="375" y="104" text-anchor="middle" font-size="36" font-family="Arial" font-weight="700" fill="#72590a">$</text><path d="M445 155c48-4 70 4 88 28M444 155l25-25m-25 25l28 18" stroke="#176b45" stroke-width="8" stroke-linecap="round" fill="none"/><text x="390" y="222" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">como? de onde vem o dinheiro?</text></svg></figure>`,
+person:`<figure class="scene blue" aria-label="Pessoa sendo conhecida melhor antes da escolha"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><circle cx="235" cy="104" r="48" fill="#f1c394"/><path d="M164 205c9-55 33-82 71-82s63 27 72 82z" fill="#487ab7"/><circle cx="398" cy="118" r="60" fill="none" stroke="#176b45" stroke-width="10"/><path d="M440 163l58 54" stroke="#176b45" stroke-width="12" stroke-linecap="round"/><path d="M207 95h10m36 0h10m-45 31c12 9 23 9 35 0" stroke="#60402f" stroke-width="5" stroke-linecap="round" fill="none"/><text x="160" y="42" font-size="20" font-family="Arial" fill="#17352a">o que já fez?</text><text x="368" y="42" font-size="20" font-family="Arial" fill="#17352a">onde conferir?</text></svg></figure>`,
+phone:`<figure class="scene" aria-label="Mensagem no celular sendo conferida"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="70" y="25" width="190" height="190" rx="28" fill="#26362f"/><rect x="86" y="48" width="158" height="140" rx="14" fill="#fff"/><rect x="101" y="68" width="128" height="64" rx="14" fill="#e8f5ec"/><text x="165" y="93" text-anchor="middle" font-size="17" font-family="Arial" font-weight="700" fill="#17352a">URGENTE!</text><text x="165" y="116" text-anchor="middle" font-size="15" font-family="Arial" fill="#17352a">Veja antes de votar!</text><path d="M335 79l30 30 62-62" stroke="#176b45" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/><text x="382" y="145" text-anchor="middle" font-size="22" font-family="Arial" font-weight="700" fill="#176b45">PARE · VEJA · CONFIRA</text><text x="382" y="178" text-anchor="middle" font-size="18" font-family="Arial" fill="#17352a">não repasse na hora</text></svg></figure>`,
+check:`<figure class="scene yellow" aria-label="Lista simples para pensar antes de votar"><svg viewBox="0 0 600 240" role="img" aria-hidden="true"><rect x="110" y="28" width="380" height="185" rx="24" fill="#fff"/><g stroke="#176b45" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M155 73l12 12 24-28"/><path d="M155 114l12 12 24-28"/><path d="M155 155l12 12 24-28"/></g><g stroke="#9eb4a8" stroke-width="7" stroke-linecap="round"><path d="M220 75h210"/><path d="M220 116h180"/><path d="M220 157h195"/></g><text x="300" y="199" text-anchor="middle" font-size="20" font-family="Arial" fill="#17352a">boas perguntas ajudam a escolher</text></svg></figure>`
+};
+
+const steps=[
+{
+ title:'Antes do nome, entenda o trabalho.', visual:visuals.work,
+ body:`<p>Dona Antonia começou a pensar em quem vai votar.</p><p>Antes de olhar nomes, ela fez uma pergunta simples:</p><div class="question">“Qual é o trabalho desse cargo?”</div><p>Se um cano quebra, você procura quem entende de cano. Se falta luz, procura quem entende de eletricidade.</p><p><strong>Na política também. Cada cargo tem um trabalho.</strong></p><div class="remember">Primeiro entenda o cargo. Depois escolha a pessoa.</div>`
+},
+{
+ title:'Na política, existem trabalhos diferentes.', visual:visuals.roles,
+ body:`<p>Nesta eleição, você vai escolher pessoas para dois tipos de trabalho.</p><div class="simple-grid"><div class="simple-card"><strong>Administrar o governo</strong>Presidente e Governador.</div><div class="simple-card"><strong>Fazer e mudar leis. E acompanhar o governo.</strong>Deputados e Senadores.</div></div><p class="hint">“Acompanhar o governo para ver se o trabalho está sendo feito direito” também se chama <strong>fiscalizar</strong>.</p><div class="remember">Um cargo não faz o trabalho do outro.</div>`
+},
+{
+ title:'Na urna, serão seis escolhas.', visual:visuals.ballot,
+ body:`<p>Não precisa decorar tudo agora.</p><div class="ballot"><div class="ballot-row"><span class="ballot-num">1</span><span>Deputado Federal</span></div><div class="ballot-row"><span class="ballot-num">2</span><span>Deputado Estadual ou Distrital</span></div><div class="ballot-row"><span class="ballot-num">3</span><span>Senador — primeira escolha</span></div><div class="ballot-row"><span class="ballot-num">4</span><span>Senador — segunda escolha</span></div><div class="ballot-row"><span class="ballot-num">5</span><span>Governador</span></div><div class="ballot-row"><span class="ballot-num">6</span><span>Presidente</span></div></div><p class="hint">No Distrito Federal, o nome é Deputado Distrital.</p><div class="remember">São seis escolhas. Duas são para senador.</div>`
+},
+{
+ title:'O candidato fez uma promessa.', visual:visuals.promise,
+ body:`<p>Antes de pensar “gostei”, Dona Antonia pergunta:</p><div class="question">“Isso faz parte do trabalho desse cargo?”</div><p>Lembra do exemplo do cano e da luz? Não adianta pedir ao eletricista o trabalho do encanador.</p><p><strong>Na política também existe limite para o trabalho de cada cargo.</strong></p><div class="remember">Pergunte: esse cargo pode fazer isso?</div>`
+},
+{
+ title:'A promessa parece boa. Como vai acontecer?', visual:visuals.plan,
+ body:`<p>Dona Antonia faz duas perguntas:</p><div class="simple-grid"><div class="simple-card"><strong>Como vai fazer?</strong>Procure uma explicação que você consiga entender.</div><div class="simple-card"><strong>De onde vem o dinheiro?</strong>Quase toda ação do governo tem um custo.</div></div><p>Se não houver uma explicação clara, vale procurar mais informação.</p><div class="remember">Promessa boa precisa de explicação.</div>`
+},
+{
+ title:'E quem está pedindo seu voto?', visual:visuals.person,
+ body:`<p>Agora Dona Antonia olha a pessoa.</p><div class="simple-grid"><div class="simple-card"><strong>O que essa pessoa já fez?</strong></div><div class="simple-card"><strong>O que ela fala combina com o que já fez?</strong></div><div class="simple-card"><strong>Onde posso conferir informações sobre ela?</strong></div></div><p>Você pode ouvir outras pessoas. Mas a escolha é sua.</p><div class="remember">Procure saber antes de decidir.</div>`
+},
+{
+ title:'Chegou uma mensagem no celular. É verdade?', visual:visuals.phone,
+ body:`<p>Nem tudo que chega no celular é verdade.</p><div class="simple-grid"><div class="simple-card"><strong>1. PARE</strong>Não passe a mensagem adiante na hora.</div><div class="simple-card"><strong>2. VEJA</strong>Quem publicou essa informação?</div><div class="simple-card"><strong>3. CONFIRA</strong>Outro lugar confiável está dizendo a mesma coisa?</div></div><div class="remember">PARE. VEJA. CONFIRA.</div>`
+},
+{
+ title:'Agora você sabe o que perguntar.', visual:visuals.check,
+ body:`<p>Antes de decidir, pense:</p><div class="checklist"><div class="check"><span class="checkmark">✓</span><span>Sei qual é o trabalho desse cargo?</span></div><div class="check"><span class="checkmark">✓</span><span>A promessa cabe nesse trabalho?</span></div><div class="check"><span class="checkmark">✓</span><span>Entendi como o candidato pretende fazer?</span></div><div class="check"><span class="checkmark">✓</span><span>Procurei conhecer melhor essa pessoa?</span></div><div class="check"><span class="checkmark">✓</span><span>Conferi as informações importantes?</span></div></div><p><strong>Você não precisa saber tudo sobre política para escolher melhor.</strong></p><div class="remember">O voto é seu. A escolha também.</div>`
+}
+];
+
 let current=0;
-function show(n,updateHistory=true){
- const next=document.querySelector('[data-s="'+n+'"]'); if(!next)return;
- document.querySelectorAll('.screen').forEach(s=>{s.hidden=true;s.classList.remove('active')});
- next.hidden=false;next.classList.add('active');current=n;
- if(updateHistory)history.pushState({step:n},'',n?'#passo-'+n:'#inicio');
- window.scrollTo(0,0);const title=next.querySelector('h1,h2');if(title)title.focus({preventScroll:true});
+const home=document.querySelector('[data-screen="home"]');
+const lesson=document.querySelector('[data-screen="lesson"]');
+const done=document.querySelector('[data-screen="done"]');
+const content=document.getElementById('lesson-content');
+const count=document.getElementById('step-count');
+const progress=document.getElementById('progress');
+const continueBtn=document.getElementById('continue-btn');
+
+function showOnly(target){[home,lesson,done].forEach(s=>{s.hidden=s!==target;s.classList.toggle('active',s===target)});window.scrollTo(0,0)}
+function renderStep(index,historyMode='push'){
+ current=Math.max(0,Math.min(index,steps.length-1));
+ const step=steps[current];
+ showOnly(lesson);
+ count.textContent=`Passo ${current+1} de ${steps.length}`;
+ progress.max=steps.length;progress.value=current+1;progress.textContent=`${current+1} de ${steps.length}`;
+ content.innerHTML=`${step.visual}<h2 id="step-title" tabindex="-1">${step.title}</h2>${step.body}`;
+ continueBtn.textContent=current===steps.length-1?'TERMINEI':'CONTINUAR';
+ if(historyMode==='push')history.pushState({view:'lesson',step:current},'',`#passo-${current+1}`);
+ if(historyMode==='replace')history.replaceState({view:'lesson',step:current},'',`#passo-${current+1}`);
+ document.getElementById('step-title').focus({preventScroll:true});
 }
-function go(n){show(n,true)}
-function stepFromHash(){
- const match=location.hash.match(/^#passo-(\d+)$/);
- const step=match?Number(match[1]):0;
- return document.querySelector('[data-s="'+step+'"]')?step:0;
+function startJourney(){renderStep(0,'push')}
+function nextStep(){if(current<steps.length-1){renderStep(current+1,'push')}else{showDone('push')}}
+function goBack(){if(current===0){goHome()}else{renderStep(current-1,'replace')}}
+function showDone(historyMode='push'){showOnly(done);if(historyMode==='push')history.pushState({view:'done'},'','#concluido');if(historyMode==='replace')history.replaceState({view:'done'},'','#concluido');document.getElementById('done-title').focus({preventScroll:true})}
+function goHome(){showOnly(home);history.pushState({view:'home'},'','#inicio');document.getElementById('home-title').focus({preventScroll:true})}
+function restoreFromUrl(){
+ if(location.hash==='#concluido'){showDone('replace');return}
+ const m=location.hash.match(/^#passo-(\d+)$/);if(m){const n=Number(m[1])-1;if(n>=0&&n<steps.length){renderStep(n,'replace');return}}
+ showOnly(home);history.replaceState({view:'home'},'','#inicio')
 }
-window.addEventListener('popstate',e=>show(e.state?.step??stepFromHash(),false));
-const initialStep=stepFromHash();
-history.replaceState({step:initialStep},'',initialStep?'#passo-'+initialStep:'#inicio');
-if(initialStep!==0)show(initialStep,false);
+window.addEventListener('popstate',e=>{
+ const s=e.state;
+ if(!s||s.view==='home'){showOnly(home);return}
+ if(s.view==='done'){showOnly(done);document.getElementById('done-title').focus({preventScroll:true});return}
+ if(s.view==='lesson'){renderStep(s.step,'none')}
+});
+restoreFromUrl();
 </script>
+<noscript><div class="wrap" style="padding:24px 0"><p>Para usar esta versão do Voto Consciente, ative o JavaScript do navegador.</p></div></noscript>
 </body>
 </html>
