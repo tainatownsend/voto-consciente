@@ -6,6 +6,7 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 
 - [x] Repositório público criado e PR de protótipo aberta.
 - [x] GitHub Pages configurado via GitHub Actions na branch do protótipo.
+- [x] Workflow de Pages alinhado às versões atuais recomendadas pelo GitHub.
 - [x] Estrutura mobile-first.
 - [x] Uma ideia principal e uma ação principal por tela.
 - [x] Navegação compatível com o botão Voltar do navegador.
