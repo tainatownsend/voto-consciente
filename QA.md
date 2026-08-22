@@ -8,11 +8,17 @@ Technical QA only while the prototype is awaiting user validation. No changes to
 
 ## Deployment
 
-- GitHub Pages workflow exists and deploys repository root.
-- The prototype branch `prototype/v3-conversa-direta` was not included in the Pages push trigger, so pushes to the current prototype could not deploy a preview.
-- Fixed on the prototype branch by adding `prototype/v3-conversa-direta` to the workflow branch trigger.
-- Public reachability still needs confirmation after the workflow completes.
-- No PR merge performed.
+Meaningful infrastructure issue found and fixed:
+
+- GitHub Pages provides one deployment target per repository. Simply adding `prototype/v3-conversa-direta` to the production Pages workflow meant a push to the prototype branch could replace the public production root with the unvalidated V3.
+- The prototype workflow now preserves the current `main` site at the public root and publishes V3 only under `preview/v3/`.
+- The workflow checks out `main` into the deployment root, checks out the prototype separately, copies only the prototype `index.html` into `public/preview/v3/index.html`, and deploys the combined artifact.
+- No PR merge was performed.
+- Public reachability of the new preview URL still needs confirmation after the workflow completes.
+
+Expected preview path:
+
+`https://tainatownsend.github.io/voto-consciente/preview/v3/`
 
 ## Browser navigation
 
@@ -63,7 +69,8 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- confirm the latest prototype-branch Pages deployment completed successfully and the public URL serves V3;
+- confirm the latest prototype-branch Pages deployment completed successfully and `preview/v3/` serves V3;
+- confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
 - verify the TSE external link from the deployed page.
