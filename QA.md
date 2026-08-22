@@ -5,9 +5,9 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 ## Concluído
 
 - [x] Repositório público criado e PR de protótipo aberta.
-- [x] GitHub Pages configurado via GitHub Actions na branch do protótipo.
-- [x] Workflow de Pages alinhado às versões atuais recomendadas pelo GitHub.
-- [x] O artefato de Pages publica `site/`, com `index.html` na raiz do artefato conforme exigido pelo GitHub Pages.
+- [x] GitHub Pages está habilitado no repositório.
+- [x] A `main` contém `index.html` e `assets/` na raiz para evitar que o Pages publique apenas o README.
+- [x] O conteúdo publicado na raiz da `main` corresponde ao protótipo atual de `site/`.
 - [x] Estrutura mobile-first.
 - [x] Uma ideia principal e uma ação principal por tela.
 - [x] Navegação compatível com o botão Voltar do navegador.
@@ -22,7 +22,7 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 
 ## QA técnico que pode continuar sem mudar a experiência aprovada
 
-- [ ] Confirmar deploy público do GitHub Pages.
+- [ ] Confirmar por HTTP que `https://tainatownsend.github.io/voto-consciente/` está servindo o `index.html` atual (e não o README/cache antigo).
 - [ ] Testar ausência de rolagem horizontal em 320 px, 375 px, 390 px, tablet e desktop.
 - [ ] Testar navegação completa apenas por teclado em navegador real.
 - [ ] Validar Voltar/Avançar e recarregamento em navegador real após a correção de estado por hash.
