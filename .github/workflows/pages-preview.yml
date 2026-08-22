@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - prototype/pilulas-v05
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
