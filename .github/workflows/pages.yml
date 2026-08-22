@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - prototype/v3-conversa-direta
   workflow_dispatch:
 
 permissions:
