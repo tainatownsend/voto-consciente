@@ -7,13 +7,15 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 - [x] Repositório público criado e PR de protótipo aberta.
 - [x] GitHub Pages configurado via GitHub Actions na branch do protótipo.
 - [x] Workflow de Pages alinhado às versões atuais recomendadas pelo GitHub.
+- [x] O artefato de Pages publica `site/`, com `index.html` na raiz do artefato conforme exigido pelo GitHub Pages.
 - [x] Estrutura mobile-first.
 - [x] Uma ideia principal e uma ação principal por tela.
 - [x] Navegação compatível com o botão Voltar do navegador.
 - [x] Recarregar uma URL `#passo-N` preserva a etapa atual em vez de reiniciar a jornada.
 - [x] Foco de teclado movido para o título ao trocar de etapa.
 - [x] Suporte a `prefers-reduced-motion`.
-- [x] Ilustração da Dona Antonia separada como asset.
+- [x] Ilustração da Dona Antonia separada como asset e caminho referenciado no HTML confirmado no repositório.
+- [x] Não há links externos ou âncoras `href` no protótipo atual; a navegação é feita por botões e histórico do navegador.
 - [x] Conteúdo eleitoral principal revisado com referência ao TSE.
 - [x] Contraste das combinações principais revisado: texto, verde institucional, botão e caixas de destaque passam com folga o nível AA para texto normal.
 - [x] Textos alternativos principais revisados; ilustrações repetidas/decorativas podem ficar com `alt` vazio.
@@ -26,7 +28,7 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 - [ ] Validar Voltar/Avançar e recarregamento em navegador real após a correção de estado por hash.
 - [ ] Testar experiência com movimento reduzido em navegador real.
 - [ ] Testar carregamento em conexão lenta.
-- [ ] Verificar HTML e links quebrados.
+- [ ] Validar carregamento do HTML e do asset publicado no ambiente público.
 
 ## Aguardando validação da experiência
 
