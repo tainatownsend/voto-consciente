@@ -51,8 +51,15 @@ function show(n,updateHistory=true){
  window.scrollTo(0,0);const title=next.querySelector('h1,h2');if(title)title.focus({preventScroll:true});
 }
 function go(n){show(n,true)}
-window.addEventListener('popstate',e=>show(e.state?.step??0,false));
-history.replaceState({step:0},'',location.pathname+location.search+'#inicio');
+function stepFromHash(){
+ const match=location.hash.match(/^#passo-(\d+)$/);
+ const step=match?Number(match[1]):0;
+ return document.querySelector('[data-s="'+step+'"]')?step:0;
+}
+window.addEventListener('popstate',e=>show(e.state?.step??stepFromHash(),false));
+const initialStep=stepFromHash();
+history.replaceState({step:initialStep},'',initialStep?'#passo-'+initialStep:'#inicio');
+if(initialStep!==0)show(initialStep,false);
 </script>
 </body>
 </html>
