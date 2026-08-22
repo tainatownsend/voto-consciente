@@ -14,16 +14,16 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 - [x] Suporte a `prefers-reduced-motion`.
 - [x] Ilustração da Dona Antonia separada como asset.
 - [x] Conteúdo eleitoral principal revisado com referência ao TSE.
+- [x] Contraste das combinações principais revisado: texto, verde institucional, botão e caixas de destaque passam com folga o nível AA para texto normal.
+- [x] Textos alternativos principais revisados; ilustrações repetidas/decorativas podem ficar com `alt` vazio.
 
 ## QA técnico que pode continuar sem mudar a experiência aprovada
 
 - [ ] Confirmar deploy público do GitHub Pages.
 - [ ] Testar ausência de rolagem horizontal em 320 px, 375 px, 390 px, tablet e desktop.
-- [ ] Testar navegação completa apenas por teclado.
-- [ ] Testar comportamento de Voltar/Avançar e recarregamento da página.
-- [ ] Revisar contraste de texto, botões e estados de foco.
-- [ ] Revisar textos alternativos das ilustrações.
-- [ ] Testar experiência com movimento reduzido.
+- [ ] Testar navegação completa apenas por teclado em navegador real.
+- [ ] Testar comportamento de Voltar/Avançar e recarregamento da página em navegador real.
+- [ ] Testar experiência com movimento reduzido em navegador real.
 - [ ] Testar carregamento em conexão lenta.
 - [ ] Verificar HTML e links quebrados.
 
