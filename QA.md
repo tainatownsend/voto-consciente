@@ -10,6 +10,7 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 - [x] Estrutura mobile-first.
 - [x] Uma ideia principal e uma ação principal por tela.
 - [x] Navegação compatível com o botão Voltar do navegador.
+- [x] Recarregar uma URL `#passo-N` preserva a etapa atual em vez de reiniciar a jornada.
 - [x] Foco de teclado movido para o título ao trocar de etapa.
 - [x] Suporte a `prefers-reduced-motion`.
 - [x] Ilustração da Dona Antonia separada como asset.
@@ -22,7 +23,7 @@ Este arquivo acompanha o que pode avançar sem alterar a direção visual/pedag�
 - [ ] Confirmar deploy público do GitHub Pages.
 - [ ] Testar ausência de rolagem horizontal em 320 px, 375 px, 390 px, tablet e desktop.
 - [ ] Testar navegação completa apenas por teclado em navegador real.
-- [ ] Testar comportamento de Voltar/Avançar e recarregamento da página em navegador real.
+- [ ] Validar Voltar/Avançar e recarregamento em navegador real após a correção de estado por hash.
 - [ ] Testar experiência com movimento reduzido em navegador real.
 - [ ] Testar carregamento em conexão lenta.
 - [ ] Verificar HTML e links quebrados.
