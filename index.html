@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Voto Consciente: explicações simples para ajudar você a entender os cargos e fazer suas próprias escolhas nas Eleições 2026.">
+<title>Voto Consciente — Entender para escolher melhor</title>
+<style>
+:root{--g:#176b45;--ink:#17352a;--mut:#5c6d64;--bg:#fffdf7;--soft:#eef8f1;--yel:#fff1b8;--line:#dce8e0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;line-height:1.5}.wrap{width:min(680px,calc(100% - 28px));margin:auto}
+header{height:68px;display:flex;align-items:center;border-bottom:1px solid var(--line)}.brand{font-weight:900;color:var(--g);font-size:21px;line-height:.9}.brand small{display:block;color:var(--ink);font-size:10px;margin-top:6px}
+.screen{min-height:calc(100svh - 68px);padding:32px 0 44px}.screen[hidden]{display:none}.screen.active{display:flex;align-items:center}.center{text-align:center;width:100%}
+.antonia{height:245px;display:flex;justify-content:center;align-items:flex-end;margin:10px auto}.antonia img{height:100%;max-width:90%;object-fit:contain}.badge{display:inline-block;background:var(--yel);padding:8px 13px;border-radius:999px;font-weight:900}
+h1,h2{line-height:1.08;letter-spacing:-1px}h1{font-size:clamp(40px,8vw,58px);margin:10px 0 14px}h2{font-size:clamp(34px,6vw,45px);margin:8px 0 18px}p{font-size:20px}.lead{color:#40564b}.step{font-size:14px;color:var(--g);font-weight:900;margin-bottom:20px}.step span{float:right;letter-spacing:4px}.focus{font-size:clamp(24px,5vw,31px);font-weight:900;line-height:1.25;color:var(--g);background:var(--soft);border-radius:22px;padding:20px;margin:22px 0}.focus.small{font-size:21px;text-align:left}.remember{background:var(--yel);border-radius:20px;padding:18px;font-size:19px;font-weight:900;margin-top:24px}.cta{border:0;background:var(--g);color:white;border-radius:999px;padding:17px 28px;font-weight:900;font-size:19px;min-width:230px;margin-top:25px;cursor:pointer}.cta:focus-visible{outline:4px solid #f0c84b;outline-offset:4px}
+footer{background:#123f30;color:white;padding:25px 0}footer p{font-size:14px;margin:5px 0}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:520px){.screen{padding-top:22px}.antonia{height:220px}p{font-size:19px}.cta{width:100%}.focus.small{font-size:19px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="brand">voto<br>consciente<small>Entender para escolher melhor.</small></div></div></header>
+<main id="conteudo" aria-live="polite">
+<section class="screen active" data-s="0" aria-labelledby="t0"><div class="wrap center"><span class="badge">1º turno: 4 de outubro</span><div class="antonia"><img src="assets/dona-antonia.svg" alt="Ilustração de Dona Antonia sorrindo"></div><h1 id="t0" tabindex="-1">Vamos aprender a escolher melhor?</h1><p class="lead">Não precisa entender de política.<br>Uma coisa de cada vez.</p><button class="cta" type="button" onclick="go(1)">COMEÇAR</button></div></section>
+
+<section class="screen" data-s="1" aria-labelledby="t1" hidden><div class="wrap"><div class="step">Seu próximo degrau <span aria-hidden="true">● ○</span></div><h2 id="t1" tabindex="-1">Antes de escolher uma pessoa...</h2><p>Dona Antonia já começou a pensar em quem vai votar.</p><div class="focus">“Que trabalho eu estou escolhendo alguém para fazer?”</div><p>Cada cargo tem um trabalho diferente. Saber isso ajuda a entender se uma promessa faz sentido.</p><div class="remember">Primeiro entenda o cargo. Depois pense em quem escolher.</div><button class="cta" type="button" onclick="go(2)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="2" aria-labelledby="t2" hidden><div class="wrap"><div class="step">Mais um degrau <span aria-hidden="true">● ○</span></div><h2 id="t2" tabindex="-1">O que vou escolher nesta eleição?</h2><p>Nas Eleições 2026, Dona Antonia vai fazer <strong>seis escolhas</strong> na urna.</p><div class="focus small">Deputado Federal<br>Deputado Estadual ou Distrital<br>Senador — primeira vaga<br>Senador — segunda vaga<br>Governador<br>Presidente</div><p>É muita coisa para decorar de uma vez. <strong>E você não precisa decorar agora.</strong></p><div class="remember">Por enquanto, guarde só isto: são trabalhos diferentes.</div><button class="cta" type="button" onclick="go(3)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="3" aria-labelledby="t3" hidden><div class="wrap"><div class="step">Agora fica mais simples <span aria-hidden="true">● ○</span></div><h2 id="t3" tabindex="-1">Esses cargos fazem trabalhos diferentes.</h2><p>Podemos começar separando em dois grupos simples:</p><div class="focus small"><strong>Governador e Presidente</strong><br>ajudam a administrar o governo.<br><br><strong>Deputados e Senadores</strong><br>participam da criação das leis e fiscalizam.</div><p>Existem mais detalhes, mas não precisamos aprender tudo agora.</p><div class="remember">Uns administram. Outros criam leis e fiscalizam.</div><button class="cta" type="button" onclick="go(4)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="4" aria-labelledby="t4" hidden><div class="wrap"><div class="step">Agora olhamos a promessa <span aria-hidden="true">● ○</span></div><h2 id="t4" tabindex="-1">Um candidato fez uma promessa.</h2><p>Antes, Dona Antonia talvez pensasse apenas: “Gostei dessa promessa.”</p><div class="focus">“Isso faz parte do trabalho desse cargo?”</div><p>Um candidato pode prometer algo que não depende só dele — ou que não faz parte daquele cargo.</p><div class="remember">Pergunte: ele pode mesmo fazer isso?</div><button class="cta" type="button" onclick="go(5)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="5" aria-labelledby="t5" hidden><div class="wrap"><div class="step">Mais uma boa pergunta <span aria-hidden="true">● ○</span></div><h2 id="t5" tabindex="-1">A promessa parece boa. E agora?</h2><p>Dona Antonia não pergunta apenas “eu gostei?”.</p><div class="focus">Como vai fazer?<br>De onde vêm os recursos?</div><p>Não precisa entender de economia para pedir uma explicação simples.</p><div class="remember">Uma boa promessa precisa de explicação.</div><button class="cta" type="button" onclick="go(6)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="6" aria-labelledby="t6" hidden><div class="wrap"><div class="step">Agora olhamos a pessoa <span aria-hidden="true">● ○</span></div><h2 id="t6" tabindex="-1">E quem é esse candidato?</h2><p>Dona Antonia quer conhecer melhor quem está pedindo o voto dela.</p><div class="focus small">O que essa pessoa já fez?<br><br>O que ela fala combina com o que já fez?<br><br>Onde posso encontrar informações sobre ela?</div><p>Você pode ouvir outras pessoas. Mas também pode procurar informação e pensar por você.</p><div class="remember">Seu voto é seu.</div><button class="cta" type="button" onclick="go(7)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="7" aria-labelledby="t7" hidden><div class="wrap"><div class="step">Antes de acreditar ou compartilhar <span aria-hidden="true">● ○</span></div><h2 id="t7" tabindex="-1">“Dona Antonia, olha isso!”</h2><p>Chegou uma mensagem: “URGENTE! Veja isso antes de votar!”</p><div class="focus">PARE.<br>VEJA quem publicou.<br>CONFIRA em outras fontes.</div><p>Nem tudo que chega no celular é verdade. Não precisa passar adiante na hora.</p><div class="remember">PARE. VEJA. CONFIRA.</div><button class="cta" type="button" onclick="go(8)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="8" aria-labelledby="t8" hidden><div class="wrap"><div class="step">Seu próximo degrau está mais claro <span aria-hidden="true">● ○</span></div><h2 id="t8" tabindex="-1">Agora é com você.</h2><p>Antes de decidir, Dona Antonia faz algumas perguntas.</p><div class="focus small">Sei o que esse cargo faz?<br><br>A promessa tem a ver com esse cargo?<br><br>Procurei conhecer o candidato?<br><br>Conferi as informações importantes?</div><p>Você não precisa saber tudo sobre política. Precisa saber fazer boas perguntas.</p><div class="remember">O voto é seu. A escolha também.</div><button class="cta" type="button" onclick="go(9)">CONTINUAR</button></div></section>
+
+<section class="screen" data-s="9" aria-labelledby="t9" hidden><div class="wrap center"><div class="antonia"><img src="assets/dona-antonia.svg" alt=""></div><h2 id="t9" tabindex="-1">Você já tem uma boa base para pensar no seu voto.</h2><p class="lead">Quando quiser, podemos subir mais um degrau e entender melhor como a política funciona.</p><button class="cta" type="button" onclick="go(0)">VOLTAR AO INÍCIO</button></div></section>
+</main>
+<footer><div class="wrap"><strong>Voto Consciente</strong><p>Projeto sem partido. Não dizemos em quem você deve votar. Queremos ajudar você a entender e fazer suas próprias escolhas.</p></div></footer>
+<script>
+let current=0;
+function show(n,updateHistory=true){
+ const next=document.querySelector('[data-s="'+n+'"]'); if(!next)return;
+ document.querySelectorAll('.screen').forEach(s=>{s.hidden=true;s.classList.remove('active')});
+ next.hidden=false;next.classList.add('active');current=n;
+ if(updateHistory)history.pushState({step:n},'',n?'#passo-'+n:'#inicio');
+ window.scrollTo(0,0);const title=next.querySelector('h1,h2');if(title)title.focus({preventScroll:true});
+}
+function go(n){show(n,true)}
+function stepFromHash(){
+ const match=location.hash.match(/^#passo-(\d+)$/);
+ const step=match?Number(match[1]):0;
+ return document.querySelector('[data-s="'+step+'"]')?step:0;
+}
+window.addEventListener('popstate',e=>show(e.state?.step??stepFromHash(),false));
+const initialStep=stepFromHash();
+history.replaceState({step:initialStep},'',initialStep?'#passo-'+initialStep:'#inicio');
+if(initialStep!==0)show(initialStep,false);
+</script>
+</body>
+</html>
