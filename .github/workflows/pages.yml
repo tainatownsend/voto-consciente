@@ -1,9 +1,8 @@
-name: Publish Voto Consciente to GitHub Pages
+name: Publish Voto Consciente preview to GitHub Pages
 
 on:
   push:
     branches:
-      - main
       - prototype/v3-conversa-direta
   workflow_dispatch:
 
@@ -20,19 +19,33 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}preview/v3/
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout production main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: public
+
+      - name: Checkout V3 prototype
+        uses: actions/checkout@v4
+        with:
+          ref: prototype/v3-conversa-direta
+          path: prototype
+
+      - name: Add V3 preview without replacing production root
+        run: |
+          mkdir -p public/preview/v3
+          cp prototype/index.html public/preview/v3/index.html
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload site
+      - name: Upload combined site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: public
 
       - name: Deploy to GitHub Pages
         id: deployment
