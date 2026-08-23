@@ -19,7 +19,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}preview/v3/
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout production main
@@ -38,12 +38,13 @@ jobs:
         run: |
           mkdir -p public/preview/v3
           cp prototype/index.html public/preview/v3/index.html
+          touch public/.nojekyll
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload combined site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: public
 
