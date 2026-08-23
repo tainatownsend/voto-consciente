@@ -15,14 +15,14 @@ Meaningful infrastructure issues found and fixed:
 - The workflow checks out `main` into the deployment root, checks out the prototype separately, copies only the prototype `index.html` into `public/preview/v3/index.html`, and deploys the combined artifact.
 - Corrected the workflow `environment.url`: it now uses the Pages deployment output directly instead of appending `preview/v3/` to an expression that already represents a deployed URL.
 - Updated `actions/upload-pages-artifact` from v3 to v4 and added `.nojekyll` to the deployed artifact for static-file robustness.
+- Repository Settings → Pages → Build and deployment → Source has now been set to **GitHub Actions** by the user.
+- Added this QA-only commit after Pages enablement to trigger a fresh prototype-branch deployment with the corrected infrastructure.
 - No PR merge was performed.
 
-Current blocker:
+Current deployment check:
 
-- The public URL is still returning 404.
-- Repository-level GitHub Pages enablement/source cannot be changed safely from the current connected GitHub actions available here.
-- GitHub's current Pages setup requires the repository Settings → Pages → Build and deployment → Source to be set to **GitHub Actions** before `actions/configure-pages@v5` can configure/deploy the site using the normal `GITHUB_TOKEN`.
-- Once that one-time repository setting is enabled, the existing prototype workflow should be able to publish the combined artifact on the next run/push.
+- A fresh Pages deployment has been triggered from the prototype branch after repository-level Pages enablement.
+- Public reachability of `preview/v3/` still requires confirmation after that run completes.
 
 Expected preview path:
 
@@ -77,8 +77,7 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- user: set Repository Settings → Pages → Build and deployment → Source to **GitHub Actions** if it is not already selected;
-- confirm the next prototype-branch Pages deployment completes successfully and `preview/v3/` serves V3;
+- confirm the fresh prototype-branch Pages deployment completes successfully and `preview/v3/` serves V3;
 - confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
