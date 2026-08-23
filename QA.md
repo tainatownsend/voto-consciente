@@ -1,6 +1,6 @@
 # QA — V3 Conversa Direta
 
-Last technical QA update: 2026-08-22
+Last technical QA update: 2026-08-23
 
 ## Scope
 
@@ -8,13 +8,21 @@ Technical QA only while the prototype is awaiting user validation. No changes to
 
 ## Deployment
 
-Meaningful infrastructure issue found and fixed:
+Meaningful infrastructure issues found and fixed:
 
 - GitHub Pages provides one deployment target per repository. Simply adding `prototype/v3-conversa-direta` to the production Pages workflow meant a push to the prototype branch could replace the public production root with the unvalidated V3.
-- The prototype workflow now preserves the current `main` site at the public root and publishes V3 only under `preview/v3/`.
+- The prototype workflow preserves the current `main` site at the public root and publishes V3 only under `preview/v3/`.
 - The workflow checks out `main` into the deployment root, checks out the prototype separately, copies only the prototype `index.html` into `public/preview/v3/index.html`, and deploys the combined artifact.
+- Corrected the workflow `environment.url`: it now uses the Pages deployment output directly instead of appending `preview/v3/` to an expression that already represents a deployed URL.
+- Updated `actions/upload-pages-artifact` from v3 to v4 and added `.nojekyll` to the deployed artifact for static-file robustness.
 - No PR merge was performed.
-- Public reachability of the new preview URL still needs confirmation after the workflow completes.
+
+Current blocker:
+
+- The public URL is still returning 404.
+- Repository-level GitHub Pages enablement/source cannot be changed safely from the current connected GitHub actions available here.
+- GitHub's current Pages setup requires the repository Settings → Pages → Build and deployment → Source to be set to **GitHub Actions** before `actions/configure-pages@v5` can configure/deploy the site using the normal `GITHUB_TOKEN`.
+- Once that one-time repository setting is enabled, the existing prototype workflow should be able to publish the combined artifact on the next run/push.
 
 Expected preview path:
 
@@ -69,7 +77,8 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- confirm the latest prototype-branch Pages deployment completed successfully and `preview/v3/` serves V3;
+- user: set Repository Settings → Pages → Build and deployment → Source to **GitHub Actions** if it is not already selected;
+- confirm the next prototype-branch Pages deployment completes successfully and `preview/v3/` serves V3;
 - confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
