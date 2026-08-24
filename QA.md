@@ -1,6 +1,6 @@
 # QA — V3 Conversa Direta
 
-Last technical QA update: 2026-08-23
+Last technical QA update: 2026-08-24
 
 ## Scope
 
@@ -15,14 +15,16 @@ Meaningful infrastructure issues found and fixed:
 - The workflow checks out `main` into the deployment root, checks out the prototype separately, copies only the prototype `index.html` into `public/preview/v3/index.html`, and deploys the combined artifact.
 - Corrected the workflow `environment.url`: it now uses the Pages deployment output directly instead of appending `preview/v3/` to an expression that already represents a deployed URL.
 - Updated `actions/upload-pages-artifact` from v3 to v4 and added `.nojekyll` to the deployed artifact for static-file robustness.
-- Repository Settings → Pages → Build and deployment → Source has now been set to **GitHub Actions** by the user.
-- Added this QA-only commit after Pages enablement to trigger a fresh prototype-branch deployment with the corrected infrastructure.
+- Repository Settings → Pages → Build and deployment → Source has been set to **GitHub Actions** by the user.
 - No PR merge was performed.
 
 Current deployment check:
 
-- A fresh Pages deployment has been triggered from the prototype branch after repository-level Pages enablement.
-- Public reachability of `preview/v3/` still requires confirmation after that run completes.
+- The prototype branch remains open in PR #3 and is currently 10 commits ahead / 3 commits behind `main`.
+- This divergence is not being resolved automatically because the newer `main` commits may contain product/UX changes outside technical-QA scope.
+- The Pages workflow deliberately checks out the current `main` at deployment time, so the public root can remain current without rebasing or merging the unvalidated prototype branch.
+- This QA-only commit triggers another prototype-branch Pages run after repository-level Pages enablement.
+- Public reachability of `preview/v3/` is still not externally verifiable from the current execution environment because `tainatownsend.github.io` DNS resolution is unavailable here; do not mark Pages as passed until an external 200 response is observed.
 
 Expected preview path:
 
@@ -77,7 +79,7 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- confirm the fresh prototype-branch Pages deployment completes successfully and `preview/v3/` serves V3;
+- confirm the prototype-branch Pages deployment completes successfully and `preview/v3/` serves V3;
 - confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
