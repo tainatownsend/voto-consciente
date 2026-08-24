@@ -32,6 +32,18 @@ Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
 - no product HTML, UX, civic content, visual direction, or pedagogy was changed;
 - the workflow update itself retriggers Pages.
 
+### 2026-08-24 build/deploy dependency fix
+
+The Pages workflow still used a single job for artifact upload and deployment. GitHub's current custom Pages workflow guidance expects deployment to depend on the build/upload job so the Pages artifact is available before `deploy-pages` runs.
+
+Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
+
+- split the workflow into `build` and `deploy` jobs;
+- `deploy` now declares `needs: build`;
+- the Pages artifact is uploaded in the build job before deployment starts;
+- `include-hidden-files: true` preserves `.nojekyll` in the Pages artifact;
+- no product HTML, UX, civic content, visual direction, or pedagogy was changed.
+
 Expected preview path after this run:
 
 `https://tainatownsend.github.io/voto-consciente/preview-v3/`
