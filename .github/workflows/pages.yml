@@ -36,8 +36,8 @@ jobs:
 
       - name: Add V3 preview without replacing production root
         run: |
-          mkdir -p public/preview/v3
-          cp prototype/index.html public/preview/v3/index.html
+          mkdir -p public/preview-v3
+          cp prototype/index.html public/preview-v3/index.html
           touch public/.nojekyll
 
       - name: Configure GitHub Pages
