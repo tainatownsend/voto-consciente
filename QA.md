@@ -14,7 +14,6 @@ Meaningful infrastructure issues found and fixed:
 - The prototype workflow preserves the current `main` site at the public root and publishes V3 under a dedicated preview path.
 - The workflow checks out `main` into the deployment root, checks out the prototype separately, copies only the prototype `index.html` into the preview directory, and deploys the combined artifact.
 - Corrected the workflow `environment.url`: it uses the Pages deployment output directly.
-- Updated `actions/upload-pages-artifact` from v3 to v4 and added `.nojekyll` to the deployed artifact for static-file robustness.
 - Repository Settings → Pages → Build and deployment → Source has been set to **GitHub Actions** by the user.
 - No PR merge was performed.
 
@@ -41,8 +40,18 @@ Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
 - split the workflow into `build` and `deploy` jobs;
 - `deploy` now declares `needs: build`;
 - the Pages artifact is uploaded in the build job before deployment starts;
-- `include-hidden-files: true` preserves `.nojekyll` in the Pages artifact;
 - no product HTML, UX, civic content, visual direction, or pedagogy was changed.
+
+### 2026-08-24 Pages artifact version fix
+
+The workflow used `actions/upload-pages-artifact@v4` together with `include-hidden-files: true`. That option was added to `upload-pages-artifact` in v5, while v4 excluded dotfiles by design.
+
+Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
+
+- upgraded `actions/upload-pages-artifact` from v4 to v5;
+- retained `include-hidden-files: true` so `.nojekyll` is actually preserved in the uploaded Pages artifact;
+- no product HTML, UX, civic content, visual direction, or pedagogy was changed;
+- this commit retriggers the Pages workflow.
 
 Expected preview path after this run:
 
