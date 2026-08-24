@@ -65,17 +65,19 @@ Current deployment check:
 
 ## Browser navigation
 
-Issue found and fixed:
+Issues found and fixed:
 
 - Previous implementation used `history.replaceState()` for every lesson step, so browser Back/Forward did not reliably traverse the learning journey.
 - Direct reloads on `#passo-N` were not restored on initial page load.
+- A direct deep link such as `#passo-4` restored correctly, but the in-page **Voltar** button treated that restored state as if it had an earlier Voto Consciente history entry. On a fresh tab it could therefore call `history.back()` and leave the site instead of moving to the previous lesson.
 
 Current behavior:
 
 - entering the journey preserves Home in browser history;
-- each Continue action creates a real history entry;
+- each Continue action creates a real internal history entry;
 - browser Back/Forward restores the correct lesson without creating duplicate history entries;
 - direct `#passo-N` URLs restore the matching step;
+- direct-link restored states are marked as external/non-internal history, so the in-page **Voltar** button moves to the preceding lesson (or Home) instead of leaving the site;
 - `#concluido` restores the completion screen.
 
 ## Accessibility implementation
@@ -114,6 +116,6 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 - confirm the prototype-branch Pages deployment completes successfully and `preview-v3/` serves V3;
 - confirm the public root still serves the current `main` version after the preview deploy;
-- smoke-test Back/Forward after deployment in a real mobile browser;
+- smoke-test Back/Forward and direct-link **Voltar** behavior after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
 - verify the TSE external link from the deployed page.
