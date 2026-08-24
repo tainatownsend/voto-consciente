@@ -20,11 +20,11 @@ Meaningful infrastructure issues found and fixed:
 
 Current deployment check:
 
-- The prototype branch remains open in PR #3 and is currently 10 commits ahead / 3 commits behind `main`.
-- This divergence is not being resolved automatically because the newer `main` commits may contain product/UX changes outside technical-QA scope.
+- The prototype branch remains open in PR #3 and is currently divergent from `main`.
+- This divergence is not being resolved automatically because newer `main` commits may contain product/UX changes outside technical-QA scope.
 - The Pages workflow deliberately checks out the current `main` at deployment time, so the public root can remain current without rebasing or merging the unvalidated prototype branch.
 - This QA-only commit triggers another prototype-branch Pages run after repository-level Pages enablement.
-- Public reachability of `preview/v3/` is still not externally verifiable from the current execution environment because `tainatownsend.github.io` DNS resolution is unavailable here; do not mark Pages as passed until an external 200 response is observed.
+- Do not mark Pages as passed until the deployed preview returns 200 and the production root is confirmed intact.
 
 Expected preview path:
 
@@ -84,3 +84,5 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 - smoke-test Back/Forward after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
 - verify the TSE external link from the deployed page.
+
+Deployment retriggered by Kai on 2026-08-24 after confirming the preview workflow is present on the prototype branch.
