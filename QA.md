@@ -55,28 +55,39 @@ Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
 
 ### 2026-08-25 github-pages environment protection blocker
 
-The latest workflow run for the prototype branch completed the entire `build` job successfully, including both checkouts, preview assembly, Pages configuration, and artifact upload. The separate `deploy` job then failed before any step started (zero steps, no runner assigned).
+The prototype workflow completed the entire `build` job successfully, including both checkouts, preview assembly, Pages configuration, and artifact upload. The separate `deploy` job then failed before any step started (zero steps, no runner assigned).
 
-This failure pattern is consistent with the `github-pages` environment rejecting `prototype/v3-conversa-direta` via deployment branch protection. GitHub Pages environments are commonly created with the default branch allowed, while environment protection rules can block other refs before a deploy job starts.
+This failure pattern was consistent with the `github-pages` environment rejecting `prototype/v3-conversa-direta` via deployment branch protection.
 
-Current evidence:
+Evidence before the fix:
 
-- latest Pages run before the fix: build = success;
+- Pages build = success;
 - deploy = failure before steps;
-- artifact creation is therefore no longer the blocker;
-- PR #3 remains open and unmerged.
+- artifact creation was therefore no longer the blocker;
+- PR #3 remained open and unmerged.
 
 ### 2026-08-25 isolated preview environment fix
 
-GitHub's `actions/deploy-pages` documentation states that the deployment job should target an environment and explicitly allows a different environment name when needed. Because the existing `github-pages` environment is protected against the prototype branch, the preview workflow now uses a dedicated `github-pages-preview` environment.
+The preview workflow was changed to use a dedicated `github-pages-preview` deployment environment rather than weakening the protected production `github-pages` environment.
 
 Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
 
 - changed only the deploy job environment from `github-pages` to `github-pages-preview`;
 - retained the same combined artifact that checks out the current `main` into the public root and adds V3 only at `/preview-v3/`;
-- this avoids weakening or changing protection rules on the production `github-pages` environment;
-- no product HTML, UX, civic content, visual direction, or pedagogy was changed;
-- the workflow commit and this QA update retrigger Pages.
+- no product HTML, UX, civic content, visual direction, or pedagogy was changed.
+
+### 2026-08-25 successful Pages deployment
+
+The first complete run after the isolated preview-environment fix succeeded.
+
+Run #30 (`32796236415`) results:
+
+- `build` = success;
+- `deploy` = success;
+- `actions/deploy-pages@v4` found the uploaded `github-pages` artifact;
+- GitHub created the Pages deployment for commit `6e920bff1774c0653e0205fcca36f033c1d1f0ab`;
+- the deploy action reported `Reported success!`;
+- GitHub evaluated the environment URL as `https://tainatownsend.github.io/voto-consciente/`.
 
 Expected preview path:
 
@@ -84,9 +95,10 @@ Expected preview path:
 
 Current deployment check:
 
+- GitHub-side Pages deployment status is now **success**.
 - PR #3 remains open; no merge was performed.
-- External DNS resolution for `tainatownsend.github.io` is unavailable from the current execution environment, so HTTP reachability cannot yet be marked passed from here.
-- Do not mark Pages as passed until the new workflow run completes successfully and the deployed preview returns 200 while the production root remains intact.
+- External DNS resolution for `tainatownsend.github.io` remains unavailable from the current execution environment, so an independent HTTP 200 check of `/preview-v3/` cannot yet be completed here.
+- The Pages deployment blocker itself is resolved; remaining deployment QA is independent public reachability and confirmation that the production root still serves the current `main` version.
 
 ## Browser navigation
 
@@ -139,8 +151,7 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- confirm the next prototype-branch Pages deployment completes successfully using `github-pages-preview`;
-- confirm `preview-v3/` serves V3;
+- independently confirm `preview-v3/` returns HTTP 200 when external DNS resolution is available;
 - confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward and direct-link **Voltar** behavior after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
