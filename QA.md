@@ -61,20 +61,24 @@ This failure pattern is consistent with the `github-pages` environment rejecting
 
 Current evidence:
 
-- latest Pages run: build = success;
+- latest Pages run before the fix: build = success;
 - deploy = failure before steps;
 - artifact creation is therefore no longer the blocker;
 - PR #3 remains open and unmerged.
 
-Required repository-setting check:
+### 2026-08-25 isolated preview environment fix
 
-- Settings → Environments → `github-pages` → Deployment branches and tags;
-- allow `prototype/v3-conversa-direta` explicitly, or use **No restriction** if that matches the intended repository policy;
-- keep Settings → Pages → Source = **GitHub Actions**.
+GitHub's `actions/deploy-pages` documentation states that the deployment job should target an environment and explicitly allows a different environment name when needed. Because the existing `github-pages` environment is protected against the prototype branch, the preview workflow now uses a dedicated `github-pages-preview` environment.
 
-This setting cannot be changed through the currently available connected GitHub actions, so user/admin input is required before another Pages deploy can succeed.
+Safe infrastructure-only fix applied on `prototype/v3-conversa-direta`:
 
-Expected preview path after the environment rule permits the prototype branch:
+- changed only the deploy job environment from `github-pages` to `github-pages-preview`;
+- retained the same combined artifact that checks out the current `main` into the public root and adds V3 only at `/preview-v3/`;
+- this avoids weakening or changing protection rules on the production `github-pages` environment;
+- no product HTML, UX, civic content, visual direction, or pedagogy was changed;
+- the workflow commit and this QA update retrigger Pages.
+
+Expected preview path:
 
 `https://tainatownsend.github.io/voto-consciente/preview-v3/`
 
@@ -82,7 +86,7 @@ Current deployment check:
 
 - PR #3 remains open; no merge was performed.
 - External DNS resolution for `tainatownsend.github.io` is unavailable from the current execution environment, so HTTP reachability cannot yet be marked passed from here.
-- Do not mark Pages as passed until the deployed preview returns 200 and the production root is confirmed intact.
+- Do not mark Pages as passed until the new workflow run completes successfully and the deployed preview returns 200 while the production root remains intact.
 
 ## Browser navigation
 
@@ -135,8 +139,8 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- user/admin: allow `prototype/v3-conversa-direta` to deploy to the `github-pages` environment (or remove that environment branch restriction if appropriate);
-- confirm the next prototype-branch Pages deployment completes successfully and `preview-v3/` serves V3;
+- confirm the next prototype-branch Pages deployment completes successfully using `github-pages-preview`;
+- confirm `preview-v3/` serves V3;
 - confirm the public root still serves the current `main` version after the preview deploy;
 - smoke-test Back/Forward and direct-link **Voltar** behavior after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
