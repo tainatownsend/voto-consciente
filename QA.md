@@ -6,6 +6,20 @@ Last technical QA update: 2026-08-25
 
 Technical QA only while the prototype is awaiting user validation. No changes to approved UX direction, visual direction, political/civic content, pedagogy, or learning scope.
 
+## Prototype lineage / validation target
+
+### 2026-08-25 stale-preview clarification
+
+A validation-target mismatch was confirmed after the user reported that the published `/preview-v3/` link showed an older version.
+
+- PR #3 (`prototype/v3-conversa-direta`) is still the original V3 conversation prototype and remains open/unmerged.
+- `main` has since advanced with newer prototype work, including `preview-motion-v2/` (`Prototype motion v2 with visual reasoning and path drawing` plus its SVG initialization fix).
+- Therefore `/preview-v3/` is technically the correct deployment of PR #3, but it is **not the newest prototype experience** in the repository.
+- This QA branch must not silently redefine or overwrite `/preview-v3/` with newer product work, because that would change the prototype/UX under review rather than perform infrastructure-only QA.
+- Until prototype lineage is intentionally consolidated, treat `/preview-v3/` as the legacy PR #3 validation target and `preview-motion-v2/` as the newer motion prototype living on `main`.
+
+No UX, visual, civic/political content, pedagogy, or learning scope was changed in this clarification.
+
 ## Deployment
 
 Meaningful infrastructure issues found and fixed:
@@ -89,16 +103,17 @@ Run #30 (`32796236415`) results:
 - the deploy action reported `Reported success!`;
 - GitHub evaluated the environment URL as `https://tainatownsend.github.io/voto-consciente/`.
 
-Expected preview path:
+Expected PR #3 preview path:
 
 `https://tainatownsend.github.io/voto-consciente/preview-v3/`
 
 Current deployment check:
 
-- GitHub-side Pages deployment status is now **success**.
+- GitHub-side Pages deployment status is **success**.
 - PR #3 remains open; no merge was performed.
-- External DNS resolution for `tainatownsend.github.io` remains unavailable from the current execution environment, so an independent HTTP 200 check of `/preview-v3/` cannot yet be completed here.
+- External DNS resolution for `tainatownsend.github.io` remains unavailable from the current execution environment, so an independent HTTP 200 check cannot yet be completed here.
 - The Pages deployment blocker itself is resolved; remaining deployment QA is independent public reachability and confirmation that the production root still serves the current `main` version.
+- Because the repository now contains newer motion prototype work on `main`, successful reachability of `/preview-v3/` should not be interpreted as validation of the newest prototype experience.
 
 ## Browser navigation
 
@@ -151,8 +166,9 @@ No horizontal-scroll-producing fixed content width was found in this QA pass.
 
 ## Pending technical checks
 
-- independently confirm `preview-v3/` returns HTTP 200 when external DNS resolution is available;
-- confirm the public root still serves the current `main` version after the preview deploy;
+- independently confirm `/preview-v3/` returns HTTP 200 when external DNS resolution is available;
+- independently confirm `/preview-motion-v2/` reachability when external DNS resolution is available, because it is the newer prototype path in the repository;
+- confirm the public root still serves the current `main` version after preview deploys;
 - smoke-test Back/Forward and direct-link **Voltar** behavior after deployment in a real mobile browser;
 - smoke-test at narrow mobile width (~320 px), common phones (~375–430 px), tablet, and desktop;
 - verify the TSE external link from the deployed page.
