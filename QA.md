@@ -103,13 +103,19 @@ Run #30 (`32796236415`) results:
 - the deploy action reported `Reported success!`;
 - GitHub evaluated the environment URL as `https://tainatownsend.github.io/voto-consciente/`.
 
+### 2026-08-25 deploy action maintenance update
+
+The workflow now uses `actions/deploy-pages@v5` instead of v4, matching the current Pages action generation and removing the previous Node 20 deprecation warning. The artifact step remains `actions/upload-pages-artifact@v5`.
+
+This was infrastructure-only maintenance; no product HTML, UX, visual direction, civic/political content, pedagogy, or learning scope was changed.
+
 Expected PR #3 preview path:
 
 `https://tainatownsend.github.io/voto-consciente/preview-v3/`
 
 Current deployment check:
 
-- GitHub-side Pages deployment status is **success**.
+- GitHub-side Pages deployment has previously completed successfully after the preview-environment fix.
 - PR #3 remains open; no merge was performed.
 - External DNS resolution for `tainatownsend.github.io` remains unavailable from the current execution environment, so an independent HTTP 200 check cannot yet be completed here.
 - The Pages deployment blocker itself is resolved; remaining deployment QA is independent public reachability and confirmation that the production root still serves the current `main` version.
