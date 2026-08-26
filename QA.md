@@ -8,14 +8,14 @@
 
 ## Deployment
 
-- GitHub Actions run #35 completed successfully on 2026-08-26 for commit `74fe8a2a48bb8ca63ecacdcf2e03e15cf1640972`.
+- Latest GitHub Actions run #37 completed successfully on 2026-08-26 for commit `28efbd2f73e7f5f91a4adab1f3c053869b29512e`.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
-- Independent HTTP verification from the automation environment is currently blocked by DNS resolution for `tainatownsend.github.io`; GitHub-side deployment is green.
+- Independent HTTP verification from the automation environment is currently blocked by DNS resolution for `tainatownsend.github.io`; GitHub-side deployment remains green.
 
 ## Technical QA completed
 
 - Added `prefers-reduced-motion` handling.
-- Inactive animated scenes are now hidden from the accessibility tree (`visibility:hidden` + `aria-hidden`) so screen readers do not read every scene at once.
+- Inactive animated scenes are hidden from the accessibility tree (`visibility:hidden` + `aria-hidden`) so screen readers do not read every scene at once.
 - Moved live announcements to the concise caption region rather than the entire animated stage.
 - Added progress semantics (`role=progressbar`, min/max/current value).
 - Added explicit accessible state/labels to autoplay play/pause control.
