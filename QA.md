@@ -8,7 +8,7 @@
 
 ## Deployment
 
-- Latest verified GitHub Actions run #45 completed successfully on 2026-08-26 for commit `ceb3f5a25bea945935a00f602b2c21039cd3dbdd`.
+- Latest verified GitHub Actions run #47 completed successfully on 2026-08-26 for commit `a83edfb408727733daa6837ce5a7297ddd97fc8f`.
 - Both build and deploy are green on the GitHub side for the current branch head.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
 - Independent HTTP verification from the automation environment remains blocked by temporary DNS resolution failure for `tainatownsend.github.io`; this is not a GitHub Actions deployment failure.
@@ -26,6 +26,12 @@
 - Added scene hashes (`#scene-1` … `#scene-6`) and History API handling so browser Back/Forward moves through manually visited scenes instead of immediately leaving the explainer. Direct scene URLs restore the matching scene. Autoplay replaces the current history entry rather than creating six-second history spam.
 - Fixed the in-app `Voltar` interaction with browser history: it now consumes existing in-app history when available and safely steps backward with `replaceState` for direct deep links.
 - Maintained responsive/mobile CSS and no change to approved UX, visual direction, civic content, or pedagogy.
+
+## Technical observations for a later safe hardening pass
+
+- On very narrow viewports, the three-button controls row should be smoke-tested for wrapping/overflow rather than assumed from the current flex sizing.
+- Autoplay currently continues while the document is in a background tab; pausing it on `visibilitychange` would avoid returning to an unexpectedly advanced scene.
+- These are implementation-only items and must not change the approved UX/content direction.
 
 ## Pending before approval
 
