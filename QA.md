@@ -8,7 +8,7 @@
 
 ## Deployment
 
-- Latest verified GitHub Actions run #47 completed successfully on 2026-08-26 for commit `a83edfb408727733daa6837ce5a7297ddd97fc8f`.
+- Latest verified GitHub Actions run #48 completed successfully on 2026-08-26 for commit `6661c3e9701b9324a14bcccee7d98ce36e4daa4a`.
 - Both build and deploy are green on the GitHub side for the current branch head.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
 - Independent HTTP verification from the automation environment remains blocked by temporary DNS resolution failure for `tainatownsend.github.io`; this is not a GitHub Actions deployment failure.
@@ -31,6 +31,7 @@
 
 - On very narrow viewports, the three-button controls row should be smoke-tested for wrapping/overflow rather than assumed from the current flex sizing.
 - Autoplay currently continues while the document is in a background tab; pausing it on `visibilitychange` would avoid returning to an unexpectedly advanced scene.
+- Fixed-height stage plus `overflow:hidden` should be smoke-tested with browser text zoom / large text settings to ensure scene content cannot be clipped on small screens.
 - These are implementation-only items and must not change the approved UX/content direction.
 
 ## Pending before approval
