@@ -8,9 +8,10 @@
 
 ## Deployment
 
-- Latest GitHub Actions run #37 completed successfully on 2026-08-26 for commit `28efbd2f73e7f5f91a4adab1f3c053869b29512e`.
+- Latest verified GitHub Actions run #38 completed successfully on 2026-08-26 for commit `c9bddfe10d33d6f5342936b64420d81c4862e7f0`.
+- Both `build` and `deploy` jobs completed successfully; the Pages deploy step itself is green.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
-- Independent HTTP verification from the automation environment is currently blocked by DNS resolution for `tainatownsend.github.io`; GitHub-side deployment remains green.
+- Independent HTTP verification from the automation environment remains blocked by DNS resolution for `tainatownsend.github.io`; GitHub-side deployment is healthy.
 
 ## Technical QA completed
 
@@ -21,6 +22,7 @@
 - Added explicit accessible state/labels to autoplay play/pause control.
 - Decorative directional arrows are hidden from assistive technology.
 - Added visible keyboard focus styling and a disabled state for navigation controls.
+- Confirmed the prototype uses no external asset URLs, reducing broken-asset risk.
 - Maintained responsive/mobile CSS and no change to approved UX, visual direction, civic content, or pedagogy.
 
 ## Pending before approval
