@@ -8,7 +8,7 @@
 
 ## Deployment
 
-- Latest verified GitHub Actions run #44 completed successfully on 2026-08-26 for commit `6bf2fd6fbfcb34671f99840f868bf5c48d8d254c`.
+- Latest verified GitHub Actions run #45 completed successfully on 2026-08-26 for commit `ceb3f5a25bea945935a00f602b2c21039cd3dbdd`.
 - Both build and deploy are green on the GitHub side for the current branch head.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
 - Independent HTTP verification from the automation environment remains blocked by temporary DNS resolution failure for `tainatownsend.github.io`; this is not a GitHub Actions deployment failure.
