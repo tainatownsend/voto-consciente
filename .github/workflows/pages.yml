@@ -1,9 +1,9 @@
-name: Publish Voto Consciente to GitHub Pages
+name: Publish Voto Consciente Reels V1 preview
 
 on:
   push:
     branches:
-      - main
+      - prototype/reels-v1
   workflow_dispatch:
 
 permissions:
@@ -16,23 +16,43 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout production site
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+
+      - name: Checkout Reels V1 prototype
+        uses: actions/checkout@v4
+        with:
+          ref: prototype/reels-v1
+          path: prototype
+
+      - name: Assemble safe preview artifact
+        run: |
+          mkdir -p site/preview-reels-v1
+          cp -a prototype/preview-reels-v1/. site/preview-reels-v1/
+          touch site/.nojekyll
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: site
+          include-hidden-files: true
 
+  deploy:
+    needs: build
+    environment:
+      name: github-pages-preview
+      url: ${{ steps.deployment.outputs.page_url }}preview-reels-v1/
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
