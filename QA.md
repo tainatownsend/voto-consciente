@@ -8,10 +8,10 @@
 
 ## Deployment
 
-- Latest verified GitHub Actions run #49 completed successfully on 2026-08-26 for commit `5e2fe4ab576d67dcfb08853af369f800393bcefa`.
-- Both build and deploy were green on the GitHub side for that branch head.
+- Latest verified GitHub Actions run #51 completed successfully on 2026-08-26 for commit `39888b65b83cafd3ec75999f24e1c39088dbd729`.
+- Both build and deploy completed successfully for the current branch head.
 - Workflow builds a combined Pages artifact while preserving the current `main` site and adding this prototype at `/preview-animated-v1/`.
-- Independent HTTP verification from the automation environment remains blocked by temporary DNS resolution failure for `tainatownsend.github.io`; this is not a GitHub Actions deployment failure.
+- Independent HTTP verification from the automation environment remains blocked by DNS resolution failure for `tainatownsend.github.io`; this is not a GitHub Actions deployment failure.
 
 ## Technical QA completed
 
@@ -36,7 +36,6 @@
 
 ## Pending before approval
 
-- Confirm the new autoplay visibility fix deploy completes successfully.
 - Independent public HTTP reachability check for `/preview-animated-v1/` once DNS resolution is available from the automation environment.
 - Manual browser/device smoke test after user validates the prototype direction.
 - Continue only technical QA until product validation; do not expand learning journeys or merge PR #6.
