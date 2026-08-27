@@ -1,9 +1,9 @@
-name: Publish Voto Consciente Reels V1 preview
+name: Publish Voto Consciente Reels V2 preview
 
 on:
   push:
     branches:
-      - prototype/reels-v1
+      - prototype/reels-v2-adult-editorial
   workflow_dispatch:
 
 permissions:
@@ -25,16 +25,16 @@ jobs:
           ref: main
           path: site
 
-      - name: Checkout Reels V1 prototype
+      - name: Checkout Reels V2 prototype
         uses: actions/checkout@v4
         with:
-          ref: prototype/reels-v1
+          ref: prototype/reels-v2-adult-editorial
           path: prototype
 
       - name: Assemble safe preview artifact
         run: |
-          mkdir -p site/preview-reels-v1
-          cp -a prototype/preview-reels-v1/. site/preview-reels-v1/
+          mkdir -p site/preview-reels-v2
+          cp -a prototype/preview-reels-v2/. site/preview-reels-v2/
           touch site/.nojekyll
 
       - name: Configure GitHub Pages
@@ -50,7 +50,7 @@ jobs:
     needs: build
     environment:
       name: github-pages-preview
-      url: ${{ steps.deployment.outputs.page_url }}preview-reels-v1/
+      url: ${{ steps.deployment.outputs.page_url }}preview-reels-v2/
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
