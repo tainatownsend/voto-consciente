@@ -38,14 +38,18 @@ Sequence:
 
 - Removed the four-quadrant composition that overlapped on mobile.
 - Replaced it with one idea per beat/composition.
-- Added a consistent 9:16 narrative safe area: top reserved for brand/progress, bottom reserved for captions/controls.
+- Added a consistent narrative safe area with top reserved for brand/progress and bottom reserved for captions/controls.
 - Added fluid typography and compact-height overrides for shorter mobile screens.
-- Captions and playback controls no longer share the main narrative canvas.
+- Captions are now rendered in a dedicated bottom band instead of competing with the story canvas.
+- Playback controls stay in their own right-side rail and no longer sit on top of caption text.
+- Added explicit light/dark UI states so the brand and progress bar maintain contrast over photography.
+- Reduced dead space in text-only beats by moving the main idea higher and adding editorial continuity devices (`promise-thread`, giant keyword, logic strip).
+- Added persistent visual continuity between beats: problem → promise → cargo → competence → dependencies → rule.
 - Final takeaway includes a dedicated bridge zone above the controls.
 
 ## Technical safeguards
 
-- 9:16 mobile-first reel shell.
+- 9:16/mobile-first reel shell with a 560 px minimum usable height.
 - autoplay with pause/replay.
 - pauses automatically when the document becomes hidden.
 - `prefers-reduced-motion` supported.
@@ -59,11 +63,12 @@ The prototype uses two remote Unsplash photographs as neutral illustrative edito
 
 ## Pending QA
 
-- confirm the newest GitHub Pages deploy and public reachability;
+- confirm newest GitHub Pages deploy and public reachability;
 - smoke test at ~320 px, 375 px, 390–430 px widths and shorter mobile heights;
-- verify no overlap with browser chrome / safe areas on iOS;
+- verify no overlap with iOS in-app browser chrome / safe areas;
+- verify caption band and control rail remain separated at all target heights;
 - verify remote image loading/fallback behavior;
 - verify pause/replay and reduced-motion behavior in Safari/Chrome mobile;
-- editorial review for adult visual tone and continuity;
+- editorial review for adult visual tone, rhythm and visual continuity;
 - institutional/content review before treating the civic example as final;
 - user validation of the hybrid grammar before producing Reels 02–08.
