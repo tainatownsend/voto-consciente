@@ -4,7 +4,10 @@
 
 - Adult editorial motion, not e-learning UI.
 - Silent-first comprehension.
+- **Visual-first target: ~70–80% visual / 20–30% text.**
 - Real photographic elements + editorial typography + drawn reasoning paths.
+- Images are explanatory material, not decorative backgrounds.
+- No explanatory beat should require a paragraph to work.
 - No emoji-led storytelling, cartoon people, playful bounce, or school-card visual language.
 - A frozen frame should read as an editorial composition, not a course slide.
 - One idea per composition.
@@ -25,27 +28,28 @@ Series map is documented in `NARRATIVE_ARCHITECTURE_V1.md`. Only Reel 01 is in p
 
 Question resolved: can someone simply promise something and make it happen?
 
-Sequence:
-1. concrete public problem;
-2. apparently simple promise;
-3. cargo — who is making the promise?;
-4. competência — can that office decide this?;
-5. reveal that execution may also depend on resources, other actors, approval and oversight;
+Visual sequence:
+1. real public problem shown photographically;
+2. promise shown as an editorial clipping;
+3. civic/institutional image + only the prompt `Quem promete?`;
+4. visual comparison `cargo → decisão`, with imagery carrying the relationship;
+5. photographic institutional scene + animated path for resources / other actors / control;
 6. practical answer: **promessa não é poder**;
-7. explicit bridge: next Reel explains the real role of the office.
+7. compact visual recap `promessa → cargo → competência → execução`;
+8. explicit bridge to Reel 02.
 
-## Layout hardening applied
+## Layout + visual hardening applied
 
 - Removed the four-quadrant composition that overlapped on mobile.
 - Replaced it with one idea per beat/composition.
 - Added a consistent narrative safe area with top reserved for brand/progress and bottom reserved for captions/controls.
-- Added fluid typography and compact-height overrides for shorter mobile screens.
-- Captions are now rendered in a dedicated bottom band instead of competing with the story canvas.
-- Playback controls stay in their own right-side rail and no longer sit on top of caption text.
-- Added explicit light/dark UI states so the brand and progress bar maintain contrast over photography.
-- Reduced dead space in text-only beats by moving the main idea higher and adding editorial continuity devices (`promise-thread`, giant keyword, logic strip).
-- Added persistent visual continuity between beats: problem → promise → cargo → competence → dependencies → rule.
-- Final takeaway includes a dedicated bridge zone above the controls.
+- Captions render in a dedicated bottom band; playback controls stay in a separate right-side rail.
+- Added explicit light/dark UI states for contrast over photography.
+- Replaced paragraph-heavy Cargo/Competência beats with photographic crops and short labels.
+- Added a visual `cargo → decisão` relationship instead of explaining it in prose.
+- Reduced caption copy and total Reel duration to ~35 seconds.
+- Added compact-height overrides for short mobile screens.
+- Final takeaway closes the reasoning and bridges explicitly to Reel 02.
 
 ## Technical safeguards
 
@@ -59,7 +63,7 @@ Sequence:
 
 ## Assets
 
-The prototype uses two remote Unsplash photographs as neutral illustrative editorial material (hospital/public infrastructure and civic architecture). Before production, replace remote dependencies with locally stored, licensed/attributed final assets and verify political neutrality, accessibility, loading behavior and fallback behavior.
+The prototype currently uses remote Unsplash photographs as neutral illustrative editorial material. Before production, replace remote dependencies with locally stored, licensed/attributed final assets and verify political neutrality, accessibility, loading behavior and fallback behavior.
 
 ## Pending QA
 
@@ -71,4 +75,4 @@ The prototype uses two remote Unsplash photographs as neutral illustrative edito
 - verify pause/replay and reduced-motion behavior in Safari/Chrome mobile;
 - editorial review for adult visual tone, rhythm and visual continuity;
 - institutional/content review before treating the civic example as final;
-- user validation of the hybrid grammar before producing Reels 02–08.
+- user validation of the visual-first grammar before producing Reels 02–08.
